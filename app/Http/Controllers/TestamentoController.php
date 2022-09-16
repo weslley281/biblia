@@ -48,7 +48,11 @@ class TestamentoController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $testamento = Testamento::findOrFail($id);
+
+        $testamento->update($request->all());
+
+        return $testamento;
     }
 
     /**
@@ -59,6 +63,6 @@ class TestamentoController extends Controller
      */
     public function destroy($id)
     {
-        //
+        return Testamento::destroy($id);
     }
 }
